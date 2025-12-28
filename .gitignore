@@ -1,0 +1,11 @@
+# Derlenmiş dosyalar
+out/
+bin/
+*.class
+
+# IDE Ayarları
+.idea/
+*.iml
+
+# Kütüphaneler
+*.jar
