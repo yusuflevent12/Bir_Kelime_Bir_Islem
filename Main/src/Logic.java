@@ -66,6 +66,7 @@ public class Logic {
                     dataBase.saveScore(name,frame.getScore());
                     stopLogic();
                 } else if (isGameOver||word.isGameOver()) {
+
                     frame.setGameOverNotification(word.prepareString());
                     frame.showGameOver();
                     stopLogic();

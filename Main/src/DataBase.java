@@ -1,8 +1,5 @@
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DataBase {
 
@@ -32,20 +29,25 @@ public class DataBase {
         }
 
         // Skorları büyükten küçüğe getirme
-        public List<Map.Entry<String,Integer>> getTopScores() {
+        public List<Map.Entry<String, Integer>> getTopScores() {
             String sql = "SELECT player_name, score FROM scores ORDER BY score DESC LIMIT 10";
-            HashMap<String,Integer> names_scores=new HashMap<>();
-                try (Connection conn = this.connect();
-                 Statement stmt  = conn.createStatement();
-                 ResultSet rs    = stmt.executeQuery(sql)) {
+            // HashMap yerine List kullanarak sıralamayı ve aynı isimli oyuncuları koruyoruz
+            List<Map.Entry<String, Integer>> scoreList = new ArrayList<>();
+
+            try (Connection conn = this.connect();
+                 Statement stmt = conn.createStatement();
+                 ResultSet rs = stmt.executeQuery(sql)) {
 
                 while (rs.next()) {
-                    names_scores.put(rs.getString("player_name") ,rs.getInt("score"));
+                    String pName = rs.getString("player_name");
+                    int pScore = rs.getInt("score");
+                    // Her satırı bir Entry olarak listeye ekle
+                    scoreList.add(new AbstractMap.SimpleEntry<>(pName, pScore));
                 }
             } catch (SQLException e) {
                 System.out.println("Hata (Listeleme): " + e.getMessage());
             }
-            return new ArrayList<>(names_scores.entrySet());
+            return scoreList;
         }
 
 }

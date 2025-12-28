@@ -52,14 +52,17 @@ public class GameManager {
             }else {
                 gameStarterNumber();
             }
+            frame.getArea().setText("");
         });
         frame.getExit().addActionListener(e->{
             show();
             exit();
+            frame.getArea().setText("");
         });
         frame.getGoToMenu().addActionListener(e->{
             show();
             exit();
+            frame.getArea().setText("");
         });
         frame.getAgain().addActionListener(e->{
             if(this.logic.isNumberOrWord()) {
@@ -69,10 +72,12 @@ public class GameManager {
                 exit();
                 gameStarterWord();
             }
+            frame.getArea().setText("");
         });
         frame.getBackToMenu().addActionListener(e->{
             show();
             exit();
+            frame.getArea().setText("");
         });
         frame.getPlayAgain().addActionListener(e->{
             if(this.logic.isNumberOrWord()) {
@@ -82,6 +87,7 @@ public class GameManager {
                 exit();
                 gameStarterWord();
             }
+            frame.getArea().setText("");
         });
         frame.getStartWord().addActionListener(e->{
             name=frame.getUsername().getText();
@@ -94,6 +100,11 @@ public class GameManager {
         frame.getExitForWords().addActionListener(e->{
             exit();
             show();
+        });
+        frame.getSkors().addActionListener(e -> {
+            // Veritabanından güncel skorları çek ve tabloya bas
+            frame.setScoreTable(dataBase.getTopScores());
+            JOptionPane.showMessageDialog(frame, "Skorlar Güncellendi!");
         });
 
     }
