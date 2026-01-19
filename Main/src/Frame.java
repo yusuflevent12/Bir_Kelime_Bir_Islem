@@ -70,8 +70,11 @@ public class Frame extends JFrame {
     private ArrayList<LabelWord> jokerLabels;
 
     Frame() {
+        Image icon=Toolkit.getDefaultToolkit().getImage("C:\\Users\\Yusuf\\Desktop\\JAVA_PROJECT_FILE\\Oyun\\Main\\Gemini_Generated_Image_m8i964m8i964m8i9.png");
+        setIconImage(icon);
         setTitle("Bir Kelime Bir İşlem");
         setSize(1400, 850);
+        area=new JTextArea("");
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -561,7 +564,7 @@ public class Frame extends JFrame {
     }
 
     public void setGameOverNotification(String element) {
-        area=new JTextArea("");
+        area.setText("");
         area.setText(element);
         area.setEditable(false);
         area.setBackground(SECONDARY_BG);

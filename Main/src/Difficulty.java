@@ -5,7 +5,7 @@ public enum Difficulty {
          4,//adım sayısı
             1.0// bu score çarpanı
             ,2),// EKSTRA VERİLECEK HARF SAYISI
-    NORMAL(2,6,  1.5,1),
+    NORMAL(80,6,  1.5,1),
     HARD(40,  8,2.0,0);
     public final int time;
     public final  int steps;

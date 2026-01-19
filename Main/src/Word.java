@@ -22,8 +22,8 @@ public class Word {
         this.words=new ArrayList<>();
         this.difficulty=difficulty;
         this.givenLetters=new ArrayList<>();
-        String wordFile="C:\\Users\\Yusuf\\Desktop\\Oyun\\Main\\words.txt\\";
-        String meaningFile="C:\\Users\\Yusuf\\Desktop\\Oyun\\Main\\meaning.txt";
+        String wordFile="C:\\Users\\Yusuf\\Desktop\\JAVA_PROJECT_FILE\\Oyun\\Main\\words.txt";
+        String meaningFile="C:\\Users\\Yusuf\\Desktop\\JAVA_PROJECT_FILE\\Oyun\\Main\\meaning.txt";
         upLoadWords(wordFile, meaningFile);
         selectStartingWord();
         giveLetters();
